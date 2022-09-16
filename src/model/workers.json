@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Qobil",
+    "salary": "2 000 000",
+    "experience": 4,
+    "branchesId": 1
+  },
+  {
+    "id": 2,
+    "name": "Karim",
+    "salary": "2 500 000",
+    "experience": 5,
+    "branchesId": 2
+  }
+]

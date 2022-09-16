@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Cola",
+    "price": 10,
+    "branchesId": 1
+  },
+  {
+    "id": 2,
+    "name": "Fanta",
+    "price": 11,
+    "branchesId": 2
+  },
+  {
+    "id": 3,
+    "name": "Sprite",
+    "price": 12,
+    "branchesId": 3
+  }
+]
