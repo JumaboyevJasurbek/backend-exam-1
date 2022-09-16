@@ -43,11 +43,11 @@ const server = http.createServer((req, res) => {
         e.id == params ? (e.branches = branchesId) : null
       );
 
-      const filteredMarket1 = allMarkets.filter((e) =>
+      const filteredMarket1 = allBranches.filter((e) =>
         e.id == params ? (e.products = productsId) : null
       );
 
-      const filteredMarket2 = allMarkets.filter((e) =>
+      const filteredMarket2 = allBranches.filter((e) =>
         e.id == params ? (e.workers = workersId) : null
       );
 
@@ -291,10 +291,11 @@ const server = http.createServer((req, res) => {
     }
     if (req.url.split("/")[1] == "updateBranches") {
       req.on("data", (chunk) => {
-        const { branches } = JSON.parse(chunk);
+        const { branches, marketId } = JSON.parse(chunk);
         const updatedBranches = {
           id: params,
           branches,
+          marketId,
         };
         const foundBranches = allBranches.map((e) =>
           e.id == params ? updatedBranches : e
@@ -311,12 +312,13 @@ const server = http.createServer((req, res) => {
     }
     if (req.url.split("/")[1] == "updateWorkers") {
       req.on("data", (chunk) => {
-        const { name, salary, experience } = JSON.parse(chunk);
+        const { name, salary, experience, branchesId } = JSON.parse(chunk);
         const updatedWorkers = {
           id: params,
           name,
           salary,
           experience,
+          branchesId,
         };
         const foundWorkers = allWorkers.map((e) =>
           e.id == params ? updatedWorkers : e
@@ -333,11 +335,12 @@ const server = http.createServer((req, res) => {
     }
     if (req.url.split("/")[1] == "updateProducts") {
       req.on("data", (chunk) => {
-        const { name, price } = JSON.parse(chunk);
+        const { name, price, branchesId } = JSON.parse(chunk);
         const updatedProducts = {
           id: params,
           name,
           price,
+          branchesId,
         };
         const foundProducts = allProducts.map((e) =>
           e.id == params ? updatedProducts : e
